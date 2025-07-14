@@ -1,0 +1,465 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    height: 100vh;
+    border-right: 1px solid #333;
+    position: fixed;
+}
+
+.sidebar .logo h2 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.sidebar nav ul li a:hover {
+    color: #fff;
+}
+
+.link-symbol {
+    color: #bb86fc;
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: 290px; /* sidebar width + padding */
+    padding: 40px;
+    width: calc(100% - 290px);
+    transition: opacity 0.3s ease-in-out;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #888;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+/* Fade transition */
+.main-content.fade-out {
+    opacity: 0.5;
+}
+
+/* Error state */
+.error {
+    color: #ff6b6b;
+    padding: 1.5rem;
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 4px solid #ff6b6b;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Content animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.main-content > * {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.main-content header h1 {
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.main-content section {
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    color: #fff;
+}
+
+h2 {
+    font-size: 1.8em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.header-link {
+    color: #bb86fc;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.news-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.news-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.news-list li strong {
+    color: #a0a0a0;
+    margin-right: 10px;
+}
+
+/* Getting Started Styles */
+.getting-started {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step {
+    background: #1e1e1e;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.step-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: #252525;
+    transition: background 0.2s ease;
+}
+
+.step-header:hover {
+    background: #2d2d2d;
+}
+
+.step-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #bb86fc;
+}
+
+.arrow {
+    margin-right: 15px;
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+    color: #bb86fc;
+}
+
+.step.active .arrow {
+    transform: rotate(90deg);
+}
+
+.step-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #1a1a1a;
+}
+
+.step.active .step-content {
+    padding: 20px;
+    max-height: 1000px;
+}
+
+.step-content p, .step-content ol {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.step-content ol {
+    padding-left: 20px;
+}
+
+.step-content li {
+    margin-bottom: 8px;
+}
+
+.discord-link {
+    display: inline-block;
+    background: #5865F2;
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.2s ease;
+}
+
+.discord-link:hover {
+    background: #4752c4;
+    text-decoration: none;
+}
+
+.help-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border-left: 4px solid #bb86fc;
+}
+
+.help-section h3 {
+    color: #bb86fc;
+    margin-top: 0;
+}
+
+.note-box {
+    background: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid #bb86fc;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.note-box p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.note-box a {
+    color: #bb86fc;
+    text-decoration: underline;
+}
+
+.note-box a:hover {
+    color: #9d4edd;
+}
+
+/* FAQ Styles */
+.faq-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.faq-question {
+    padding: 15px 20px;
+    background: #252525;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+    background: #2d2d2d;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #bb86fc;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #1a1a1a;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px;
+    max-height: 2000px;
+}
+
+.faq-answer p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.faq-answer a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
+}
+
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 4px;
+}
+
+.game-list p {
+    margin: 5px 0;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.faq-item .arrow {
+    margin-right: 15px;
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+    color: #bb86fc;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(90deg);
+}
+
+/* Standalone Rookie Page Styles */
+.standalone-section {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.standalone-section h2 {
+    color: #bb86fc;
+    margin: 30px 0 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+.info-box {
+    background: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid #bb86fc;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.feature-section, .cons-section {
+    margin: 30px 0;
+}
+
+.feature-list, .cons-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.feature-list li {
+    background: rgba(46, 204, 113, 0.1);
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-left: 4px solid #2ecc71;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    padding-left: 35px;
+}
+
+.feature-list li:before {
+    content: "✓";
+    color: #2ecc71;
+    position: absolute;
+    left: 12px;
+    font-weight: bold;
+}
+
+.cons-list li {
+    background: rgba(231, 76, 60, 0.1);
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-left: 4px solid #e74c3c;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    padding-left: 35px;
+}
+
+.cons-list li:before {
+    content: "✗";
+    color: #e74c3c;
+    position: absolute;
+    left: 12px;
+    font-weight: bold;
+}
+
+.status-box {
+    background: rgba(52, 152, 219, 0.1);
+    border-left: 4px solid #3498db;
+    padding: 15px 20px;
+    margin: 40px 0 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.status-box h3 {
+    margin: 0 0 10px 0;
+    color: #3498db;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Navigation emojis */
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Navigation icons */
+.nav-icon {
+    color: #888;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+/* Active state for navigation */
+.sidebar nav ul li a.active {
+    color: #bb86fc;
+    font-weight: bold;
+}
+
+.sidebar nav ul li a.active .nav-icon {
+    color: #bb86fc;
+}
